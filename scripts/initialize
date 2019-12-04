@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+brew bundle
+
+npm install -g npm
+npm install -g yarn
+
+nodenv rehash
+
+# rails new -d postgresql .
+
+# rails webpacker:install
+
+# brew services start postgresql
+# rails db:setup
+# rails db:migrate
+
+rails generate rspec:install
+

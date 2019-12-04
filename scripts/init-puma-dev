@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# goenv local 1.11.4
+# goenv global 1.11.4
+# go get github.com/puma/puma-dev/...
+# (
+#     cd $GOPATH/src/github.com/puma/puma-dev/
+#     make && make install
+# )
+
+$GOPATH/bin/puma-dev -V
+
+# setup including custom domain
+puma-dev -d test:localhost:loc.al -install
+sudo puma-dev -d test:localhost:loc.al -setup
+
+
+cd ~/.puma-dev
+ln -sf $PWD ~/.puma-dev/epimetheus.loc
+ln -sf $PWD ~/.puma-dev/epimetheus

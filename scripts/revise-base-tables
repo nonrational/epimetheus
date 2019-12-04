@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# exit when any command fails
+set -e
+
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command exited with code $?."' EXIT
+
+rake db:rollback
+read -p'Press [enter] to continue'
+rake db:migrate
+rake db:reset
